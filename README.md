@@ -29,7 +29,7 @@ Developer with 3+ years of experience in Python and NodeJs
 - 👯 I’m looking to collaborate on **Any project**
 
 
-<p><img align="right" src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" alt="gif" width="400"/></p>
+<p><img align="right" src="https://i.pinimg.com/originals/e4/26/70/e426702edf874b181aced1e2fa5c6cde.gif" alt="gif" width="250"/></p>
 
 <h1><img src="octocats/octocat-squid.gif" width="40" height="40"> Technologies & Tools</h1>
 
