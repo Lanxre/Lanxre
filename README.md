@@ -1,6 +1,6 @@
 <h1>
   <img src="octocats/mona-whisper.gif" width="40" height="40">
-  Hi there!
+  <p>Hi there!</p>
 
   <a href="https://t.me/Lanxre">
     <picture>
