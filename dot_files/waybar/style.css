@@ -1,0 +1,190 @@
+@import "../colors/colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    font-weight: bold;
+    background-color: transparent;
+    border-radius: 5px;
+    min-height: 0;
+}
+
+window,
+tooltip {
+    background-color: @background;
+}
+
+#waybar {
+    background: alpha(@background, 0.6);
+    border-radius: 0;
+}
+
+#workspaces {
+    margin: 1px 0;
+}
+
+#workspaces button {
+    color: @foreground;
+    border: none;
+    padding: 0 5px;
+}
+#workspaces button:hover {
+    color: @pink;
+    transition: none;
+    border-bottom: 1px solid @pink;
+    padding: 0 8px;
+}
+
+#workspaces button.active {
+    color: @pink;
+    border: 2px solid @pink;
+    padding: 0 8px;
+    margin: 0 2px;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    padding: 0 8px;
+}
+
+/* Стили для системных модулей */
+#cpu {
+    margin-right: 10pt;
+    padding: 0 8px;
+    color: #fa8787;
+}
+#memory {
+    margin-right: 10pt;
+    padding: 0 8px;
+    color: #fab387;
+}
+#disk {
+    margin-right: 10pt;
+    padding: 0 8px;
+    color: #28c9af;
+}
+
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover {
+    background-color: alpha(@select, 0.6);
+}
+
+/* Цвета для разных уровней загрузки */
+#cpu.warning {
+    color: @yellow;
+}
+
+#cpu.critical {
+    color: @red;
+}
+
+#memory.warning {
+    color: @yellow;
+}
+
+#memory.critical {
+    color: @red;
+}
+
+#disk.warning {
+    color: @yellow;
+}
+
+#disk.critical {
+    color: @red;
+}
+
+#temperature.warning {
+    color: @yellow;
+}
+
+#temperature.critical {
+    color: @red;
+}
+
+#power,
+#tray,
+#bluetooth,
+#network,
+#battery,
+#pulseaudio,
+#clock {
+    margin: 1px 0;
+    padding: 0 10px;
+}
+
+#custom-power:hover,
+#bluetooth:hover,
+#network:hover,
+#battery:hover,
+#pulseaudio:hover,
+#clock:hover {
+    background-color: alpha(@select, 0.6);
+}
+
+#bluetooth {
+    color: @yellow;
+}
+
+#network {
+    color: @green;
+}
+
+#battery {
+    color: @purple;
+}
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#pulseaudio {
+    color: @orange;
+}
+
+#clock {
+    margin-right: 10px;
+    color: white;
+}
+
+#custom-power {
+    margin-left: 10px;
+    padding: 0px 10px 0 15px;
+}
+
+#tray {
+    margin-right: 10pt;
+    color: @magenta;
+}
+
+#tray menu {
+  background: #222222;
+  padding: 2pt;
+}
+#tray menu * {
+  margin: 2pt;
+}
+#tray menu check {
+  margin-right: 4pt;
+}
+
+
+
+#language {
+  margin-right: 10pt;
+}
+
+#mpris {
+  background: #222222;
+  color: @foreground;
+  border-radius: 12pt;
+  margin-left: 15pt;
+  padding: 0 8pt;
+}
+

@@ -1,0 +1,143 @@
+{
+    "modules-left": [ "hyprland/workspaces", "mpris"],
+    "modules-center": ["clock"],
+    "modules-right": [
+        "hyprland/language",
+        "cpu", 
+        "memory", 
+        "disk", 
+        "bluetooth", 
+        "network", 
+        "battery", 
+        "pulseaudio", 
+        "tray", 
+        "custom/power"
+    ],
+
+    "custom/power": {
+        "format" : "⏻ ",
+        "tooltip": false,
+        "on-click": "wlogout -b 3"
+    },
+
+    "hyprland/language": {
+      "format": "{}",
+      "format-ru": "🇷🇺",
+      "format-en": "🇺🇸"
+    },
+
+    "cpu": {
+        "format": "󰍛 {}%",
+        "on-click": "tilix -e btop",
+        "interval": 1
+    },
+
+    "memory": {
+        "format": "󰍛 {}%",
+        "on-click": "tilix -e btop",
+        "interval": 1
+    },
+
+    "disk": {
+        "format": "󰋊 {}%",
+        "interval": 10,
+        "exec": "df -h / | awk 'NR==2 {print $5}' | tr -d '%'",
+        "tooltip": false
+    },
+
+    "temperature": {
+        "format": " {}°C",
+        "interval": 5,
+        "exec": "cat /sys/class/thermal/thermal_zone0/temp | awk '{printf(\"%.1f\", $1/1000)}'",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "format": "{name}",
+        "cursor": true
+    },
+
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10,
+        "cursor": true
+    },
+
+    "bluetooth": {
+        "format": " 󰂯 ",
+        "format-disabled": " 󰂲 ",
+        "format-connected": " 󰂱 ",
+        "on-click": "blueman-manager"
+    },
+
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "  Ethernet",
+        "format-linked": "  Linked (No IP)",
+        "format-disconnected": "  Disconnected",
+        "tooltip": false
+    },
+
+    "mpris": {
+      "format": "{player_icon}  {artist} - {title}",
+      "format-paused": "{status_icon}  {artist} - {title}",
+      "tooltip-format": "{player}  ({status})\r{artist} - {title}\r\rLeft-Click:   Play / Pause\rMiddle-Click: Previous Track\rRight-Click:  Next Track",
+      "title-len": 20,
+      "player-icons": {
+        "default": "▶",
+        "mpv": "",
+        "spotify": "󰓇"
+      },
+      "status-icons": {
+        "paused": "",
+        "stopped": ""
+      }
+    },
+
+    "battery": {
+        "states": {
+            "good": 85,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-alt": "{icon} {capacity}%",
+        "format-icons": [" ", " ", " ", " ", " "],
+        "tooltip-format": "{time}",
+        "cursor": false
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "  {volume}%",
+        "format-bluetooth": " {volume}%",
+        "format-bluetooth-muted": "  {volume}%",
+        "format-icons": {
+            "headphone": " ",
+            "headset": " ",
+            "default": [" "]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "clock": {
+        "format": "{:%a %d.%m.%Y ~ %H:%M}",
+        "tooltip-format": "<span size='15000'><tt>{calendar}</tt></span>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#F5C2E7'><b>{}</b></span>",
+                "weekdays": "<span color='#89B4FA'><b>{}</b></span>",
+                "days": "<span color='#CDD6F4'><b>{}</b></span>",
+                "today": "<span color='#F9E2AF'><b>{}</b></span>"
+            }
+        },
+        "on-click": "swaync-client -t -sw"
+    }
+}
