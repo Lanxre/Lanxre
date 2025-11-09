@@ -1,50 +1,29 @@
-<h1>
-  <img src="octocats/mona-whisper.gif" width="40" height="40">
-  Hi there! 
-  <a href="https://t.me/Lanxre">
-      <picture>
-        <source width="40" align="right" media="(prefers-color-scheme: dark)" srcset="icons/telegram-light.svg">
-        <img width="40" align="right" src="icons/telegram-dark.svg" />
-      </picture>
-  </a>
-  <a href="https://www.twitch.tv/lanoreeazy">
-      <picture>
-        <source width="40" align="right" media="(prefers-color-scheme: dark)" srcset="icons/twitch-light.svg">
-        <img width="40" align="right" src="icons/twitch-dark.svg" />
-      </picture>
-  </a>
-</h1>
-<h3>Backend Python and Node.js developer  </h3>
+<div style="text-align: center;">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=161b22" />
+</div>
 
-- 🌐 My [website](https://lanxre.github.io/) 
-- 💡 [Email](mailto:burtsevvitalij@gmail.com)
----
-<h1>
-  <img src="octocats/octocat-squid.gif" width="40" height="40">
-  Programming Languages
-  <img src="gifs/codding.gif" alt="gif" height="55" align="right" />
-</h1>
-<div style="display: inline_block">
-  <h3>
-    Main
-  </h3>
+<div align="center"><h3>Software engineer</h3><div>
+<p> Most used lang<br/>
+ <div style="display: inline_block">
+  
   <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-plain.svg" />
-  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg" />
   <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" />
-  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-plain.svg" />
+  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" />
+  
 </div>
-<div style="display: inline_block">
-  <h3>
-    Minors
-  </h3>
-  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-plain.svg" />
-   <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-plain.svg" />
+<br/>
+<div align="center"> 
+  <a href = "mailto:burtsevvitalij@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white"></a>
+  <a href="https://t.me/lanxre" target="_blank"><img src="https://img.shields.io/badge/-Telegram-%23332?style=for-the-badge&logo=telegram&logoColor=white" /></a>
 </div>
 
----
-<h1><img src="octocats/mona-loading.gif" width="40" height="40"> GitHub Stats</h1>
+</p>
 
-<div>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=lanxre&show_icons=true&theme=transparent" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lanxre&layout=compact&theme=transparent" />
+<p align="center">
+  <a href="https://github.com/kittinan/spotify-github-profile">
+    <img src="https://spotify-github-profile.kittinanx.com/api/view?uid=31nc2ft4njhtkwb2rk3rliwgyhbq&cover_image=true&theme=novatorem&show_offline=true&background_color=000000&interchange=true&profanity=false&bar_color=9190c6&bar_color_cover=false">
+  </a>
+</p>
+<div style="text-align: center;">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=161b22&height=120&section=footer"/>
 </div>

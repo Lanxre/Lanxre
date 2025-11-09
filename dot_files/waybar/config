@@ -6,9 +6,7 @@
         "cpu", 
         "memory", 
         "disk", 
-        "bluetooth", 
-        "network", 
-        "battery", 
+        "network",
         "pulseaudio", 
         "tray", 
         "custom/power"
@@ -39,17 +37,8 @@
     },
 
     "disk": {
-        "format": "󰋊 {}%",
-        "interval": 10,
-        "exec": "df -h / | awk 'NR==2 {print $5}' | tr -d '%'",
-        "tooltip": false
-    },
-
-    "temperature": {
-        "format": " {}°C",
-        "interval": 5,
-        "exec": "cat /sys/class/thermal/thermal_zone0/temp | awk '{printf(\"%.1f\", $1/1000)}'",
-        "tooltip": false
+        "format": "{percentage_free}%  ",
+        "interval": 10
     },
 
     "hyprland/workspaces": {
@@ -61,16 +50,9 @@
     },
 
     "tray": {
-        "icon-size": 20,
+        "icon-size": 15,
         "spacing": 10,
         "cursor": true
-    },
-
-    "bluetooth": {
-        "format": " 󰂯 ",
-        "format-disabled": " 󰂲 ",
-        "format-connected": " 󰂱 ",
-        "on-click": "blueman-manager"
     },
 
     "network": {

@@ -1,185 +1,164 @@
 @import "../colors/colors.css";
 
+/* === Общие стили === */
 * {
-    font-family: "JetBrainsMono Nerd Font";
-    font-size: 13px;
-    font-weight: bold;
-    background-color: transparent;
-    border-radius: 5px;
-    min-height: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  font-weight: bold;
+  background-color: transparent;
+  border-radius: 5px;
+  min-height: 0;
 }
 
 window,
 tooltip {
-    background-color: @background;
+  background-color: @background;
 }
 
+/* === Waybar === */
 #waybar {
-    background: alpha(@background, 0.6);
-    border-radius: 0;
+  background: alpha(@background, 0.6);
+  border-radius: 0;
 }
 
+/* === Рабочие пространства === */
 #workspaces {
-    margin: 1px 0;
+  margin: 1px 0;
 }
 
 #workspaces button {
-    color: @foreground;
-    border: none;
-    padding: 0 5px;
+  color: @foreground;
+  border: 2px solid transparent;
+  padding: 0 8px;                
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
+
 #workspaces button:hover {
-    color: @pink;
-    transition: none;
-    border-bottom: 1px solid @pink;
-    padding: 0 8px;
+  color: @pink;
+  border-color: alpha(@pink, 0.5);
 }
 
 #workspaces button.active {
-    color: @pink;
-    border: 2px solid @pink;
-    padding: 0 8px;
-    margin: 0 2px;
+  color: @pink;
+  border-color: @pink;
 }
 
 #workspaces button.urgent {
-    background-color: @red;
-    padding: 0 8px;
+  background-color: @red;
+  border-color: @red;
+  color: @background;
 }
 
-/* Стили для системных модулей */
-#cpu {
-    margin-right: 10pt;
-    padding: 0 8px;
-    color: #fa8787;
-}
-#memory {
-    margin-right: 10pt;
-    padding: 0 8px;
-    color: #fab387;
-}
-#disk {
-    margin-right: 10pt;
-    padding: 0 8px;
-    color: #28c9af;
-}
-
-#cpu:hover,
-#memory:hover,
-#disk:hover,
-#temperature:hover {
-    background-color: alpha(@select, 0.6);
-}
-
-/* Цвета для разных уровней загрузки */
-#cpu.warning {
-    color: @yellow;
-}
-
-#cpu.critical {
-    color: @red;
-}
-
-#memory.warning {
-    color: @yellow;
-}
-
-#memory.critical {
-    color: @red;
-}
-
-#disk.warning {
-    color: @yellow;
-}
-
-#disk.critical {
-    color: @red;
-}
-
-#temperature.warning {
-    color: @yellow;
-}
-
-#temperature.critical {
-    color: @red;
-}
-
+/* === Системные модули === */
+#cpu,
+#memory,
+#disk,
+#temperature,
 #power,
 #tray,
 #bluetooth,
 #network,
 #battery,
 #pulseaudio,
-#clock {
-    margin: 1px 0;
-    padding: 0 10px;
+#clock,
+#language,
+#mpris {
+  margin: 1px 0;
+  padding: 0 8px;
 }
 
+/* === Отступы для некоторых блоков === */
+#cpu,
+#memory,
+#disk,
+#tray,
+#language {
+  margin-right: 10pt;
+}
+
+#custom-power {
+  margin-left: 10px;
+  padding: 0 10px 0 15px;
+}
+
+#clock {
+  margin-right: 10px;
+}
+
+/* === Цвета модулей === */
+#cpu { color: #fa8787; }
+#memory { color: #fab387; }
+#disk { color: #86d5e9; }
+#bluetooth { color: @yellow; }
+#network { color: @green; }
+#battery { color: @purple; }
+#pulseaudio { color: @orange; }
+#clock { color: white; }
+#tray { color: white; }
+
+/* === Hover-эффекты === */
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
 #custom-power:hover,
 #bluetooth:hover,
 #network:hover,
 #battery:hover,
 #pulseaudio:hover,
 #clock:hover {
-    background-color: alpha(@select, 0.6);
+  background-color: alpha(@select, 0.6);
 }
 
-#bluetooth {
-    color: @yellow;
-}
-
-#network {
-    color: @green;
-}
-
-#battery {
-    color: @purple;
-}
-
+/* === Состояния (warning, critical) === */
+#cpu.warning,
+#memory.warning,
+#disk.warning,
+#temperature.warning,
 #battery.warning {
-    color: @yellow;
+  color: @yellow;
 }
 
+#cpu.critical,
+#memory.critical,
+#disk.critical,
+#temperature.critical,
 #battery.critical {
-    color: @red;
+  color: @red;
 }
 
-#pulseaudio {
-    color: @orange;
-}
-
-#clock {
-    margin-right: 10px;
-    color: white;
-}
-
-#custom-power {
-    margin-left: 10px;
-    padding: 0px 10px 0 15px;
-}
-
-#tray {
-    margin-right: 10pt;
-    color: @magenta;
-}
-
+/* === Меню трея === */
 #tray menu {
-  background: #222222;
+  background: alpha(@background, 0.6);
   padding: 2pt;
+  border-radius: 6px;
 }
+
 #tray menu * {
   margin: 2pt;
+  padding: 2pt 6pt;
+  border-radius: 4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
+
+/* Подсветка при наведении */
+#tray menu *:hover {
+  background-color: alpha(@select, 0.5);
+  color: @foreground;
+}
+
 #tray menu check {
   margin-right: 4pt;
+  color: grey;
 }
 
-
-
-#language {
-  margin-right: 10pt;
+#tray > * {
+  min-width: 14px;
+  min-height: 14px;
+  padding: 2px;
 }
 
+/* === MPRIS (музыка) === */
 #mpris {
   background: #222222;
   color: @foreground;
@@ -187,4 +166,3 @@ tooltip {
   margin-left: 15pt;
   padding: 0 8pt;
 }
-
