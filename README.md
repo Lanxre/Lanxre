@@ -4,13 +4,13 @@
 
 <div align="center"><h3>Software engineer</h3><div>
 <p> Most used lang<br/>
- <div style="display: inline_block">
-  
-  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-plain.svg" />
-  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" />
-  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" />
-  
-</div>
+<table align="center">
+  <tr>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-plain.svg" height="30"/></td>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" height="30"/></td>
+    <td><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" height="30"/></td>
+  </tr>
+</table>
 <br/>
 <div align="center"> 
   <a href = "mailto:burtsevvitalij@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white"></a>
