@@ -1,68 +1,50 @@
-{
-    "modules-left": [ "hyprland/workspaces", "mpris"],
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "margin-top": 3,
+    "margin-bottom": 3,
+    "margin-left": 6,
+    "margin-right": 6,
+    "modules-left": ["hyprland/workspaces", "mpris"],
     "modules-center": ["clock"],
     "modules-right": [
-        "hyprland/language",
-        "cpu", 
-        "memory", 
-        "disk", 
-        "network",
-        "pulseaudio", 
-        "tray", 
-        "custom/power"
+      "hyprland/language",
+      "cpu",
+      "memory",
+      "disk",
+      "pulseaudio",
+      "tray",
+      "custom/color-picker",
+      "custom/swaync",
+      "custom/power"
     ],
-
-    "custom/power": {
-        "format" : "⏻ ",
-        "tooltip": false,
-        "on-click": "wlogout -b 3"
+    "custom/swaync": {
+      "tooltip": true,
+      "format": "{icon}",
+      "format-icons": {
+        "notification": "<span foreground='red'><sup></sup></span>",
+        "none": "",
+        "dnd-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-none": "",
+        "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+        "dnd-inhibited-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "sleep 0.1 && swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
     },
-
     "hyprland/language": {
       "format": "{}",
       "format-ru": "🇷🇺",
       "format-en": "🇺🇸"
     },
-
-    "cpu": {
-        "format": "󰍛 {}%",
-        "on-click": "tilix -e btop",
-        "interval": 1
-    },
-
-    "memory": {
-        "format": "󰍛 {}%",
-        "on-click": "tilix -e btop",
-        "interval": 1
-    },
-
-    "disk": {
-        "format": "{percentage_free}%  ",
-        "interval": 10
-    },
-
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}",
-        "cursor": true
-    },
-
-    "tray": {
-        "icon-size": 15,
-        "spacing": 10,
-        "cursor": true
-    },
-
-    "network": {
-        "format-wifi": "  {essid}",
-        "format-ethernet": "  Ethernet",
-        "format-linked": "  Linked (No IP)",
-        "format-disconnected": "  Disconnected",
-        "tooltip": false
-    },
-
+    "hyprland/workspaces": { "all-outputs": false, "format": "{name}", "on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null", "on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null", "sort-by-number": true, "active-only": false, "persistent-workspaces": { "DP-2": [1, 5], "HDMI-A-1": [6, 10] } },
     "mpris": {
       "format": "{player_icon}  {artist} - {title}",
       "format-paused": "{status_icon}  {artist} - {title}",
@@ -78,48 +60,81 @@
         "stopped": ""
       }
     },
-
-    "battery": {
-        "states": {
-            "good": 85,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-full": "{icon} {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-alt": "{icon} {capacity}%",
-        "format-icons": [" ", " ", " ", " ", " "],
-        "tooltip-format": "{time}",
-        "cursor": false
+    "hyprland/window": {
+      "format": "{title}",
+      "separate-outputs": true,
+      "rewrite": {
+        "(.*) — Mozilla Firefox": "󰈹  $1",
+        "(.*) — Zen Browser": "󰈹  Zen - $1",
+        "(.*) - Google Chrome": "  $1",
+        "(.*) - Visual Studio Code": "󰨞  $1",
+        "(.*) - nvim": "  $1",
+        "(.*) - Obsidian(.*)": "󱓧  $1",
+        "(.*) - fish": "  $1",
+        "yazi: (.*)": "  $1",
+        "nwg-look": "  GTK Settings",
+        "Qt6 Configuration Tool": "  QT Settings",
+        "blueman-manager": "Bluetooth Settings"
+      }
     },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "  {volume}%",
-        "format-bluetooth": " {volume}%",
-        "format-bluetooth-muted": "  {volume}%",
-        "format-icons": {
-            "headphone": " ",
-            "headset": " ",
-            "default": [" "]
-        },
-        "on-click": "pavucontrol"
-    },
-
     "clock": {
-        "format": "{:%a %d.%m.%Y ~ %H:%M}",
-        "tooltip-format": "<span size='15000'><tt>{calendar}</tt></span>",
-        "calendar": {
-            "mode": "month",
-            "format": {
-                "months": "<span color='#F5C2E7'><b>{}</b></span>",
-                "weekdays": "<span color='#89B4FA'><b>{}</b></span>",
-                "days": "<span color='#CDD6F4'><b>{}</b></span>",
-                "today": "<span color='#F9E2AF'><b>{}</b></span>"
-            }
-        },
-        "on-click": "swaync-client -t -sw"
+      "format": "{:%d.%m - %H:%M:%S}",
+      "tooltip-format": "<tt>{calendar}</tt>",
+      "calendar": {
+        "mode": "month",
+        "format": {
+          "months": "<span color='#cdd6f4'><b>{}</b></span>",
+          "days": "<span color='#cdd6f4'><b>{}</b></span>",
+          "weeks": "<span color='#cdd6f4'><b>W{}</b></span>",
+          "weekdays": "<span color='#cdd6f4'><b>{}</b></span>",
+          "today": "<span color='#f38ba8'><b>{}</b></span>"
+        }
+      },
+      "interval": 1
+    },
+    "cpu": {
+      "format": "  {usage}%",
+      "on-click": "tilix -e btop",
+      "interval": 1
+    },
+    "memory": {
+      "format": "  {}%",
+      "on-click": "tilix -e btop",
+      "interval": 1
+    },
+    "custom/bluetooth": {
+      "exec": "~/.config/waybar/scripts/bluetooth.sh",
+      "interval": 10,
+      "on-click": "blueman-manager",
+      "tooltip": true,
+      "tooltip-format": "Bluetooth",
+      "format": "{}",
+      "rotate": false
+    },
+    "tray": {
+      "icon-size": 15,
+      "spacing": 10
+    },
+    "pulseaudio": {
+      "format": "{icon} <b>{volume}%</b>",
+      "format-muted": "󰝟",
+      "format-bluetooth": "{icon}  <b>{volume}%</b>",
+      "format-bluetooth-muted": "󰝟 ",
+      "format-icons": {
+        "headset": "",
+        "default": ["󰕿", "󰖀", "󰕾"]
+      },
+      "tooltip": true,
+      "on-click": "easyeffects"
+    },
+    "custom/power": {
+      "format": "",
+      "tooltip": false,
+      "on-click": "wlogout"
+    },
+    "disk": {
+      "interval": 5,
+      "format": "{percentage_free}%  "
     }
-}
+  }
+]

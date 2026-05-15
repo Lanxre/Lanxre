@@ -1,168 +1,525 @@
-@import "../colors/colors.css";
-
-/* === Общие стили === */
-* {
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 13px;
-  font-weight: bold;
-  background-color: transparent;
-  border-radius: 5px;
-  min-height: 0;
+#waybar.top {
+  background: none;
+  color: #f2f2f2;
+}
+#waybar.top > box.horizontal {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 2pt;
 }
 
-window,
-tooltip {
-  background-color: @background;
+#custom-vpn {
+  color: #7cd47b;
+  margin-right: 10pt;
 }
 
-/* === Waybar === */
-#waybar {
-  background: alpha(@background, 0.6);
-  border-radius: 0;
+#custom-temperature {
+  margin-right: 10pt;
 }
 
-/* === Рабочие пространства === */
+#custom-bluetooth {
+  color: #0082fc;
+  margin-right: 10pt;
+  font-size: 11pt;
+}
+
 #workspaces {
-  margin: 1px 0;
+  margin-left: 4pt;
 }
 
-#workspaces button {
-  color: @foreground;
-  border: 2px solid transparent;
-  padding: 0 8px;                
-  transition: border-color 0.2s ease, color 0.2s ease;
+#workspaces button { 
+  color: rgba(255, 255, 255, 0.45);
+} 
+
+#workspaces button.active { 
+  color: #ffffff; 
+} 
+
+#workspaces button.visible { 
+  color: rgba(255, 255, 255, 0.75); 
 }
 
-#workspaces button:hover {
-  color: @pink;
-  border-color: alpha(@pink, 0.5);
+#workspaces button:not(:first-child) {
+  margin-left: 2pt;
 }
 
-#workspaces button.active {
-  color: @pink;
-  border-color: @pink;
+#workspaces button:hover,
+#workspaces button:focus {
+  background: none;
+  border-color: transparent;
+  box-shadow: none;
 }
 
-#workspaces button.urgent {
-  background-color: @red;
-  border-color: @red;
-  color: @background;
+#custom-servers {
+  background: #222222;
+  color: #f2f2f2;
+  border-radius: 12pt;
+  margin-left: 15pt;
+  padding: 0 8pt;
 }
 
-/* === Системные модули === */
-#cpu,
-#memory,
-#disk,
-#temperature,
-#power,
-#tray,
-#bluetooth,
-#network,
-#battery,
-#pulseaudio,
-#clock,
-#language,
 #mpris {
-  margin: 1px 0;
-  padding: 0 8px;
+  background: #222222;
+  color: #a6e3a1;
+  border-radius: 12pt;
+  margin-left: 15pt;
+  padding: 0 8pt;
 }
 
-/* === Отступы для некоторых блоков === */
-#cpu,
-#memory,
-#disk,
-#tray,
+#window {
+  margin-left: 15pt;
+  margin-right: 20pt;
+}
+
+#memory {
+  color: #fab387;
+  margin-right: 12pt;
+}
+
+#disk {
+  color: #28c9af;
+  margin-right: 12pt;
+}
+
+#clock {
+  margin-right: 6pt;
+}
+
+#cpu {
+  color: #fa8787;
+  margin-right: 12pt;
+}
+
+#custom-weather {
+  color: #fff9a7;
+  margin-right: 15pt;
+}
+
+#tray {
+  margin-right: 10pt;
+}
+#tray menu {
+  background: #222222;
+  padding: 2pt;
+}
+#tray menu * {
+  margin: 2pt;
+}
+#tray menu check {
+  margin-right: 4pt;
+}
+
 #language {
   margin-right: 10pt;
 }
 
+@keyframes blink {
+  to {
+    background-color: rgba(30, 34, 42, 0.5);
+    color: #cdd6f4;
+  }
+}
+
+#pulseaudio {
+  color: #74c7ec;
+  margin-right: 10pt;
+}
+
+#custom-color-picker {
+  margin-left: 6pt;
+  margin-right: 6pt;
+  font-size: 10pt;
+}
+
+#custom-swaync {
+  margin-left: 6pt;
+  margin-right: 6pt;
+  font-size: 10pt;
+}
+
 #custom-power {
-  margin-left: 10px;
-  padding: 0 10px 0 15px;
+  margin-left: 6pt;
+  margin-right: 11pt;
+  font-size: 10pt;
 }
 
-#clock {
-  margin-right: 10px;
+#waybar.bottom {
+  background: none;
 }
-
-/* === Цвета модулей === */
-#cpu { color: #fa8787; }
-#memory { color: #fab387; }
-#disk { color: #86d5e9; }
-#bluetooth { color: @yellow; }
-#network { color: @green; }
-#battery { color: @purple; }
-#pulseaudio { color: @orange; }
-#clock { color: white; }
-#tray { color: white; }
-
-/* === Hover-эффекты === */
-#cpu:hover,
-#memory:hover,
-#disk:hover,
-#temperature:hover,
-#custom-power:hover,
-#bluetooth:hover,
-#network:hover,
-#battery:hover,
-#pulseaudio:hover,
-#clock:hover {
-  background-color: alpha(@select, 0.6);
-}
-
-/* === Состояния (warning, critical) === */
-#cpu.warning,
-#memory.warning,
-#disk.warning,
-#temperature.warning,
-#battery.warning {
-  color: @yellow;
-}
-
-#cpu.critical,
-#memory.critical,
-#disk.critical,
-#temperature.critical,
-#battery.critical {
-  color: @red;
-}
-
-/* === Меню трея === */
-#tray menu {
-  background: alpha(@background, 0.6);
-  padding: 2pt;
-  border-radius: 6px;
-}
-
-#tray menu * {
-  margin: 2pt;
-  padding: 2pt 6pt;
-  border-radius: 4px;
-  transition: background-color 0.15s ease, color 0.15s ease;
-}
-
-/* Подсветка при наведении */
-#tray menu *:hover {
-  background-color: alpha(@select, 0.5);
-  color: @foreground;
-}
-
-#tray menu check {
-  margin-right: 4pt;
-  color: grey;
-}
-
-#tray > * {
-  min-width: 14px;
-  min-height: 14px;
-  padding: 2px;
-}
-
-/* === MPRIS (музыка) === */
-#mpris {
+#waybar.bottom box.modules-center {
   background: #222222;
-  color: @foreground;
-  border-radius: 12pt;
-  margin-left: 15pt;
-  padding: 0 8pt;
+  margin-top: 5pt;
+  padding: 0 4pt;
+  border-top-left-radius: 10pt;
+  border-top-right-radius: 10pt;
+  box-shadow: 0 0 3pt #181825;
+}
+
+#custom-file-manager {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/file-manager.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-terminal {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/terminal.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-zen {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/zen.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-spotify {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/spotify.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 1pt;
+}
+
+#custom-obs-studio {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/obs-studio.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-discord {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/discord.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-telegram {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/telegram.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-whatsapp {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/whatsapp.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-adobe-photoshop {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/adobe-photoshop.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-gimp {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/gimp.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-pinta {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/pinta.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-inkscape {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/inkscape.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-davinci-resolve {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/davinci-resolve.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-steam {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/steam.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-heroic {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/heroic.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-ryujinx {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/ryujinx.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-lutris {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/lutris.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-obsidian {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/obsidian.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-unity {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/unity.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-jetbrains-rider {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/jetbrains-rider.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-jetbrains-idea {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/jetbrains-idea.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-jetbrains-pycharm {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/jetbrains-pycharm.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-jetbrains-webstorm {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/jetbrains-webstorm.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-neovim {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/neovim.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-vs-code {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/vs-code.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-docker {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/docker.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-beekeeper-studio {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/beekeeper-studio.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-excalidraw {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/excalidraw.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-figma {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/figma.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-bruno {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/bruno.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-calculator {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/calculator.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+#custom-anki {
+  background: transparent;
+  background-image: url("/home/satont/.config/waybar/icons/anki.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28pt;
+  font-size: 28pt;
+  padding: 0 6pt;
+  margin: 0 2pt;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 800;
+  transition-property: background;
+  transition-duration: 0.5s;
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+tooltip {
+  background: #222222;
+  color: #cdd6f4;
+  border-radius: 5pt;
 }
