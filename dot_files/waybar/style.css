@@ -30,6 +30,8 @@
 
 #workspaces button { 
   color: rgba(255, 255, 255, 0.45);
+  padding: 0 6px; 
+  min-width: 20px;
 } 
 
 #workspaces button.active { 
