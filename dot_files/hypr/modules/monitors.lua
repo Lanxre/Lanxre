@@ -3,6 +3,7 @@ hl.monitor({
   mode = "2560x1440@180",
   position = "1920x0",
   scale = 1,
+  vrr = 0,
 })
 
 hl.monitor({

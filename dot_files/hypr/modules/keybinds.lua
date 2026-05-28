@@ -1,21 +1,32 @@
 local MAIN_MOD = "SUPER"
 
 local TERMINAL = "kitty"
-local FILE_MANAGER = "thunar"
+
+--  File Manager
+
+-- thunar, dolphin
+local FILE_MANAGER = "dolphin"
+
+-- Menu
 local MENU = "wofi --show drun"
-local BROWSER = "google-chrome-stable"
+local VICINAE = "vicinae toggle"
+
+-- Browsers
+local CHROME_BROWSER = "google-chrome-stable"
+local ZEN_BROWSER    = "zen-browser"
 
 hl.bind(MAIN_MOD .. " + Q", hl.dsp.exec_cmd(TERMINAL))
 hl.bind(MAIN_MOD .. " + C", hl.dsp.window.close())
-hl.bind(MAIN_MOD .. " + M", hl.dsp.exit())
 hl.bind(MAIN_MOD .. " + L", hl.dsp.exec_cmd("hyprlock"))
-hl.bind(MAIN_MOD .. " + B", hl.dsp.exec_cmd(BROWSER))
+hl.bind(MAIN_MOD .. " + B", hl.dsp.exec_cmd(ZEN_BROWSER))
 hl.bind(MAIN_MOD .. " + E", hl.dsp.exec_cmd(FILE_MANAGER))
 hl.bind(MAIN_MOD .. " + D", hl.dsp.exec_cmd(MENU))
 
+-- exit hyprland
+-- hl.bind(MAIN_MOD .. " + M", hl.dsp.exit())
 
 hl.bind(MAIN_MOD .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(MAIN_MOD .. " + SHIFT + R", hl.dsp.exec_cmd("vicinae toggle"))
+hl.bind(MAIN_MOD .. " + S", hl.dsp.exec_cmd(VICINAE))
 hl.bind(MAIN_MOD .. " + J", hl.dsp.layout("togglesplit"))
 hl.bind(MAIN_MOD .. " + F", hl.dsp.window.fullscreen())
 
@@ -44,8 +55,8 @@ end
 
 hl.bind(MAIN_MOD .. " + SHIFT + 0", hl.dsp.window.move({ workspace = "10" }))
 
-hl.bind(MAIN_MOD .. " + S", hl.dsp.focus({ workspace = "special:magic", toggle = true }))
-hl.bind(MAIN_MOD .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(MAIN_MOD .. " + H", hl.dsp.focus({ workspace = "special:magic", toggle = true }))
+hl.bind(MAIN_MOD .. " + SHIFT + H", hl.dsp.window.move({ workspace = "special:magic" }))
 hl.bind(MAIN_MOD .. " + SHIFT + N", hl.dsp.window.move({ workspace = "empty" }))
 
 hl.bind(MAIN_MOD .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -57,7 +68,23 @@ hl.bind(MAIN_MOD .. " + comma", hl.dsp.focus({ direction = "left" }))
 hl.bind(MAIN_MOD .. " + SHIFT + period", hl.dsp.window.swap({ direction = "right" }))
 hl.bind(MAIN_MOD .. " + SHIFT + comma", hl.dsp.window.swap({ direction = "left" }))
 
-hl.bind("F9", hl.dsp.pass({ window = "class:^(discord)$" }))
+hl.bind(
+    "F9", 
+    hl.dsp.send_shortcut({
+        mods = "CTRL + SHIFT",
+        key = "M",
+        window = "class:discord",
+    })
+)
+
+hl.bind(
+    "F9", 
+    hl.dsp.send_shortcut({
+        mods = "CTRL + SHIFT",
+        key = "M",
+        window = "class:vesktop",
+    })
+)
 
 hl.bind(MAIN_MOD .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(MAIN_MOD .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })

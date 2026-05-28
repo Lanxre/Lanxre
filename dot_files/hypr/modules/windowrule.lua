@@ -34,8 +34,6 @@ hl.window_rule({
 
 hl.window_rule({
     name = "zen-browser",
-    float = true,
-    size = "50% 50%",
     match = { class = "zen", title = "^Zen Browser$" },
 })
 
@@ -223,11 +221,4 @@ hl.window_rule({
     size = "70% 80%",
     workspace = "special:opencode",
     match = { initial_title = "^OpenCode Float$" },
-})
-
-hl.window_rule({
-    name = "zen-browser-float",
-    float = true,
-    size = "50% 50%",
-    match = { class = "zen", title = "^Zen Browser$" },
 })
