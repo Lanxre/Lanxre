@@ -20,7 +20,7 @@ hl.bind(MAIN_MOD .. " + C", hl.dsp.window.close())
 hl.bind(MAIN_MOD .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(MAIN_MOD .. " + B", hl.dsp.exec_cmd(ZEN_BROWSER))
 hl.bind(MAIN_MOD .. " + E", hl.dsp.exec_cmd(FILE_MANAGER))
-hl.bind(MAIN_MOD .. " + D", hl.dsp.exec_cmd(MENU))
+-- hl.bind(MAIN_MOD .. " + D", hl.dsp.exec_cmd(MENU))
 
 -- exit hyprland
 -- hl.bind(MAIN_MOD .. " + M", hl.dsp.exit())
