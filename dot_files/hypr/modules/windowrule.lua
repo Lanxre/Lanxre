@@ -24,45 +24,12 @@ hl.window_rule({
     match = { class = "org.pulseaudio.pavucontrol" },
 })
 
-hl.window_rule({
-    name = "nemo",
-    float = true,
-    size = "50% 50%",
-    center = true,
-    match = { class = "nemo" },
-})
 
 hl.window_rule({
     name = "zen-browser",
     match = { class = "zen", title = "^Zen Browser$" },
 })
 
-hl.window_rule({
-    name = "brave-untitled",
-    float = true,
-    match = { title = "^(Untitled - Brave)" },
-})
-
-hl.window_rule({
-    name = "bitwarden",
-    float = true,
-    match = { title = "Bitwarden" },
-})
-
-hl.window_rule({
-    name = "copyq",
-    float = true,
-    center = true,
-    match = { class = "^(com.github.hluk.copyq)$" },
-})
-
-hl.window_rule({
-    name = "satty",
-    float = true,
-    size = "50% 50%",
-    center = true,
-    match = { class = "^(com.gabm.satty)$" },
-})
 
 hl.window_rule({
     name = "feh-float",
@@ -74,22 +41,6 @@ hl.window_rule({
     name = "feh-center",
     center = true,
     match = { float = true, class = "(feh)", title = "^(feh:)(.*)$" },
-})
-
-hl.window_rule({
-    name = "chatterino-usercard",
-    float = true,
-    center = true,
-    stay_focused = true,
-    size = "400 600",
-    match = { class = "^(chatterino-usercard)$" },
-})
-
-hl.window_rule({
-    name = "chatterino-no-effects",
-    no_blur = true,
-    no_shadow = true,
-    match = { class = "^(chatterino.*)$" },
 })
 
 hl.window_rule({
@@ -138,12 +89,6 @@ hl.window_rule({
 })
 
 hl.window_rule({
-    name = "warp-tile",
-    tile = true,
-    match = { class = "^(dev.warp.Warp)$" },
-})
-
-hl.window_rule({
     name = "steam-float",
     float = true,
     workspace = "5",
@@ -188,6 +133,17 @@ hl.window_rule({
     fullscreen = true,
     opacity = "1.0 override",
     match = { class = "^(steam_app_.*)$" },
+})
+
+hl.window_rule({
+    name = "steam-user-selector",
+    float = true,
+    size = "450px 350px",
+    center = true,
+    match = { 
+        class = "^(steam)$",
+        title = ".*(User|Profile|Account).*"
+    },
 })
 
 hl.window_rule({
