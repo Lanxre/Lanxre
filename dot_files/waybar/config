@@ -106,13 +106,13 @@
     "cpu": {
       "format": "  {usage}%",
       "interval": 1,
-      "on-click": "tilix -e btop"
+      "on-click": "kitty btop"
     },
 
     "memory": {
       "format": "  {}%",
       "interval": 1,
-      "on-click": "tilix -e btop"
+      "on-click": "kitty btop"
     },
 
     "disk": {

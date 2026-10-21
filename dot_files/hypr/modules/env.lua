@@ -1,5 +1,6 @@
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-hl.env("HYPRSHOT_DIR", "/home/Pictures/screenshots")
+-- hl.env("WEBKIT_DISABLE_COMPOSITING_MODE", "1")
+hl.env("HYPRSHOT_DIR", "/home/lanore/Pictures/screenshots")

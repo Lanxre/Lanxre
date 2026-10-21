@@ -91,7 +91,7 @@ hl.window_rule({
 hl.window_rule({
     name = "steam-float",
     float = true,
-    workspace = "5",
+    workspace = "3",
     match = { class = "^(steam)$" },
 })
 
@@ -142,7 +142,7 @@ hl.window_rule({
     center = true,
     match = { 
         class = "^(steam)$",
-        title = ".*(User|Profile|Account).*"
+        title = "Sign in to Steam"
     },
 })
 
